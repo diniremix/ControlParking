@@ -1,4 +1,4 @@
-<?php require_once('Connections/conexion.php'); ?>
+<?php require_once('connections/conexion.php'); ?>
 <?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
@@ -83,20 +83,25 @@ $totalRows_sumatoria = mysql_num_rows($sumatoria);
 				<div class="center">
 
 <h1></h1>
-<strong class="subHeading">Reporte Diario</br><?php echo date('Y-m-d'); ?> <br /> <?php echo $row_users['nombres']; ?></strong>
-				
-<table border="1" cellpadding="1" cellspacing="1">
+<strong class="subHeading">
+  Reporte Diario </br>
+  <?php echo date('d/m/Y'); ?> <br /> 
+  Usuario: <?php echo $row_users['nombres']; ?>
+</strong>
+
+
+<table class="center" border="1" cellpadding="1" cellspacing="1">
   <tr>
-    <td>id</td>
-    <td>placa</td>
-    <td>tipo</td>
-    <td>fecha llegada</td>
-    <td>hora llegada</td>
-    <td>fecha salida</td>
-    <td>hora salida</td>
-    <td>transcurrido</td>
-    <td>valor cobro</td>
-    <td>cliente</td>
+    <td><strong>ID</strong></td>
+    <td><strong>PLACA&nbsp;&nbsp;</strong></td>
+    <td><strong>TIPO</strong></td>
+    <td><strong>FECHA LLEGADA</strong></td>
+    <td><strong>HORA LLEGADA</strong></td>
+    <td><strong>FECHA SALIDA</strong></td>
+    <td><strong>HORA SALIDA</strong></td>
+    <td><strong>TRANSCURRIDO</strong></td>
+    <td><strong>VALOR cobro</strong></td>
+    <td><strong>CLIENTE</strong></td>
   </tr>
   <?php do { ?>
     <tr>
@@ -113,16 +118,11 @@ $totalRows_sumatoria = mysql_num_rows($sumatoria);
     </tr>
     <?php } while ($row_Diario = mysql_fetch_assoc($Diario)); ?>
 </table>
-
-sumatoria = <?php echo $row_sumatoria['suma']?>
-
-
-                    
-				</div>
-			</section>
-
-     
-
+<section class="row">
+  <strong>Total Dia:</strong> <?php echo "<strong>".$row_sumatoria['suma']."</strong>";?>
+</section>
+	</div>
+</section>
 
 
 <?php

@@ -1,8 +1,14 @@
 
 <footer id="footer">
 			<div class="center">
-				<span class="copy"><div align="right">Created by: Gustao Henao. 0954183 <br /> Alejandro Suarez  0954041 <br /> Mario Germa Baquero 1250223 </div></a></span>
-				Sistemas de Informacion <br /> Universidad del Valle <br /> Sede Buga 
+				<span class="copy">
+					<div align="right">
+						Contacto: Jorge Brunal Perez <br />
+						diniremix@gmail.com<br />
+						Montería <?php echo date('Y'); ?>
+					</div>
+				</span>
+				ControlParking <br />Sistema Administrador <br /> de parqueaderos <br /> V.1.1
 			</div>
 		</footer>
 	</div>
