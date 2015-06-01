@@ -1,5 +1,8 @@
 <?php require_once('connections/conexion.php'); ?>
 <?php
+error_reporting(7);
+date_default_timezone_set('America/Bogota');
+
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
 {
@@ -121,7 +124,6 @@ else {
 		$row_All = mysql_fetch_assoc($All);
 		$totalRows_All = mysql_num_rows($All);
 
-  
   do { ?>
     <tr>
       <td>
@@ -145,26 +147,120 @@ else {
 //$plaquita = $row_All['placa'] ;
 //$placabuscada = $_POST['placaformulario'];
 //echo $placabuscada, $plaquita,  $row_All['placa'];
-	?>
+
+?>
 </table>
 
  
 						</div>
 						<div class="half">
+<?php
 
-<?php date_default_timezone_set("America/Bogota"); ?>
-        
-        
+if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
+
+date_default_timezone_set("America/Bogota");
+
+$psql = "SELECT `fecha_pago`, `tiempo` FROM pagos WHERE cedula = '$_POST[cedula]'";
+$presult = mysql_query($psql) or die('Query failed: ' . mysql_error($conexion));
+
+$pagos = mysql_fetch_array($presult);
+
+if (isset($pagos['tiempo'])) {
+  switch ($pagos['tiempo']) {
+    case "dia":
+      $tiempo = "1";
+      break;
+    case "semana":
+      $tiempo = "7";
+      break;
+    case "15dias":
+      $tiempo = "15";
+      break;    
+     case "mes_l":
+      $tiempo = "20";
+      break;
+    case "mes_c":
+      $tiempo = "30";
+      break;
+    case "mes":
+      $tiempo = "30";
+      break;
+
+  return $tiempo;
+}}
+
+$fecha = date('Y-m-d');
+$fechaini = $pagos['fecha_pago'];
+
+	$añoi=substr($fechaini,0,4);
+	$mesi=substr($fechaini,5,2);
+	$diai=substr($fechaini,8,2);
+
+	$añof=substr($fecha,0,4);
+	$mesf=substr($fecha,5,2);
+	$diaf=substr($fecha,8,2);
+
+	$aini=($añoi);
+	$afin=($añof);
+
+	$adif=$afin-$aini;
+
+	$mini=($mesi);
+	$mfin=($mesf);
+
+	$mdif=$mfin-$mini;
+
+	$dini=($diai);
+	$dfin=($diaf);
+
+	$tddif=$dfin-$dini;
+
+$diascorridos = (($adif*360)+($mdif*30)+($tddif)-$tiempo);
+
+if (isset($diascorridos)) {
+  switch ($diascorridos) {
+    case "-5":
+      $mensaje = "Le quedan cinco dias para pagar mensualidad";
+      break;
+    case "-4":
+      $mensaje = "Le quedan cuatro dias para pagar mensualidad";
+      break;
+    case "-3":
+      $mensaje = "Le quedan tres dias para pagar mensualidad";
+      break;
+    case "-2":
+      $mensaje = "Le quedan dos dias para pagar mensualidad";
+      break;
+    case "-1":
+      $mensaje = "Le queda un dia para pagar mensualidad";
+      break;
+    case "0":
+      $mensaje = "Debe pagar mensualidad";
+      break;
+
+  return $mensaje;
+}}
+
+}
+
+?>
+
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="form2" id="form2">
   <table align="center"  border="0">
     <tr>
       <td nowrap="nowrap" align="right">Placa:</td>
-      <td colspan="2"><input name="placa" type="text" value="<?php echo $_POST['placaformulario'] ?>" size="6" maxlength="6" /></td>
+      
+      <td colspan="2"><input name="placa" type="text" value="<?php 
+      if (isset($_POST['placaformulario'])){
+      echo $_POST['placaformulario']; 
+      }
+      ?>" size="6" maxlength="6" /></td>
     </tr>
-<?php if ($_POST['tipo'] === 'moto'){ $moto = 'checked'; } else { $carro = 'checked'; } ?>
+<?php 
+ if (isset($_POST['tipo']) && $_POST['tipo'] === 'moto'){ $moto = 'checked'; } else { $carro = 'checked'; } ?>
     <tr>
       <td align="right">Tipo de Veh&iacuteculo: </td>
-	  <td align="center" size="50%">Moto:  	<input type="radio" name="tipo" value="moto" <?php echo $moto ?> /></td>
+	  <td align="center" size="50%">Moto:  	<input type="radio" name="tipo" value="moto" <?php if (isset($moto))echo $moto ?> /></td>
       <td align="center" size="50%">Carro:     <input type="radio" name="tipo" value="carro" <?php echo $carro ?> /></td>
     </tr>
     <tr >
@@ -177,11 +273,11 @@ else {
     </tr>
     <tr >
       <td nowrap="nowrap" align="right" >Usuario de llegada:</td>
-      <td colspan="2"><input name="usuario_llegada" type="text" disabled="disabled" value="<?php echo $_SESSION['nombres']?>" size="32" /></td>
+      <td colspan="2"><input name="usuario_llegada" type="text" disabled="disabled" value="<?php echo $_SESSION['login']?>" size="32" /></td>
     </tr>
 	  <input type="hidden" name="fecha_llegada" type="text" value="<?php echo date('Y-m-d')?>" />
 	  <input type="hidden" name="hora_llegada" type="text" value="<?php echo date('H:i:s')?>" />
-	  <input type="hidden" name="usuario_llegada" type="text" value="<?php echo $_SESSION['nombres']?>" />
+	  <input type="hidden" name="usuario_llegada" type="text" value="<?php echo $_SESSION['login']?>" />
 	  <input type="hidden" name="fecha_salida" type="text" value="0000-00-00" />
 	  <input type="hidden" name="hora_salida" type="text" value="00:00:00" />
 	  <input type="hidden" name="usuario_salida" type="text" value=" " />
@@ -189,7 +285,6 @@ else {
 	  <input type="hidden" name="valor_cobro" type="int" value="0" />
 	  <input type="hidden" name="tipo_cobro" type="text" value="horas" />
 	  <input type="hidden" name="e_s" type="int" value="0" />
-
     <tr>
       <td nowrap="nowrap" align="right">&nbsp;</td>
       <td colspan="2">
@@ -198,6 +293,7 @@ else {
 		  <span>Ingresar</span>
 		  </button>
 		</div>
+<font Arial, Helvetica, sans-serif color="#FF0000"><?php if (isset($mensaje)) echo $mensaje; ?></font>
     </tr>
   </table>
   <input type="hidden" name="MM_insert" value="form2" />
