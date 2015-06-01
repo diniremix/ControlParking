@@ -1,4 +1,4 @@
-<?php require_once('Connections/conexion.php'); ?>
+<?php require_once('connections/conexion.php'); ?>
 <?php
 if (!function_exists("GetSQLValueString")) {
 function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
@@ -109,20 +109,23 @@ $totalRows_sumatoriames = mysql_num_rows($sumatoriames);
 ?>           
 
 
-<strong class="subHeading"> Reporte Diario</br> <?php echo date('Y-m-d'); ?></strong>
+<strong class="subHeading"> 
+  Reporte Diario</br>
+   <?php echo date('d/m/Y'); ?>
+ </strong>
 					
-<table border="1" cellpadding="1" cellspacing="1">
-  <tr>
-    <td>id</td>
-    <td>placa</td>
-    <td>tipo</td>
-    <td>fecha llegada</td>
-    <td>hora llegada</td>
-    <td>fecha salida</td>
-    <td>hora salida</td>
-    <td>transcurrido</td>
-    <td>valor cobro</td>
-    <td>cliente</td>
+<table class="center" border="1" cellpadding="1" cellspacing="1">
+ <tr>
+    <td><strong>ID</strong></td>
+    <td><strong>PLACA&nbsp;&nbsp;</strong></td>
+    <td><strong>TIPO</strong></td>
+    <td><strong>FECHA LLEGADA</strong></td>
+    <td><strong>HORA LLEGADA</strong></td>
+    <td><strong>FECHA SALIDA</strong></td>
+    <td><strong>HORA SALIDA</strong></td>
+    <td><strong>TRANSCURRIDO</strong></td>
+    <td><strong>VALOR cobro</strong></td>
+    <td><strong>CLIENTE</strong></td>
   </tr>
   <?php do { ?>
     <tr>
@@ -139,25 +142,28 @@ $totalRows_sumatoriames = mysql_num_rows($sumatoriames);
     </tr>
     <?php } while ($row_Diario = mysql_fetch_assoc($Diario)); ?>
 </table>
+<section class="row">
+  <strong>Total Dia:</strong> <?php echo "<strong>".$row_sumatoria['suma']."</strong>";?>
+</section>
 
-sumatoria = <?php echo $row_sumatoria['suma']?>
 
 </br>
 <h1></h1>
-<strong class="subHeading">Reporte Semanal </br> Desde <?php echo $primerdia; ?> hasta <?php echo $hoy; ?></strong>
+<strong class="subHeading">Reporte Semanal </br> 
+  Desde <?php echo $primerdia; ?> hasta <?php echo $hoy; ?></strong>
 
-<table border="1" cellpadding="1" cellspacing="1">
-  <tr>
-    <td>id</td>
-    <td>placa</td>
-    <td>tipo</td>
-    <td>fecha llegada</td>
-    <td>hora llegada</td>
-    <td>fecha salida</td>
-    <td>hora salida</td>
-    <td>transcurrido</td>
-    <td>valor cobro</td>
-    <td>cliente</td>
+<table class="center" border="1" cellpadding="1" cellspacing="1">
+ <tr>
+    <td><strong>ID</strong></td>
+    <td><strong>PLACA&nbsp;&nbsp;</strong></td>
+    <td><strong>TIPO</strong></td>
+    <td><strong>FECHA LLEGADA</strong></td>
+    <td><strong>HORA LLEGADA</strong></td>
+    <td><strong>FECHA SALIDA</strong></td>
+    <td><strong>HORA SALIDA</strong></td>
+    <td><strong>TRANSCURRIDO</strong></td>
+    <td><strong>VALOR cobro</strong></td>
+    <td><strong>CLIENTE</strong></td>
   </tr>
   <?php do { ?>
     <tr>
@@ -175,25 +181,27 @@ sumatoria = <?php echo $row_sumatoria['suma']?>
     <?php } while ($row_Semanal = mysql_fetch_assoc($Semanal)); ?>
        
 </table>
-
-sumatoriasem = <?php echo $row_sumatoriasem['suma']?>
+<section class="row">
+  <strong>Total Semana:</strong> <?php echo "<strong>".$row_sumatoriasem['suma']."</strong>";?>
+</section>
 
 </br>
 <h1></h1>
-<strong class="subHeading">Reporte Mensual</br> Desde <?php echo $primerdiames; ?> hasta <?php echo $hoy; ?></strong>
+<strong class="subHeading">Reporte Mensual</br>
+ Desde <?php echo $primerdiames; ?> hasta <?php echo $hoy; ?></strong>
     				
-<table border="1" cellpadding="1" cellspacing="1">
-  <tr>
-    <td>id</td>
-    <td>placa</td>
-    <td>tipo</td>
-    <td>fecha llegada</td>
-    <td>hora llegada</td>
-    <td>fecha salida</td>
-    <td>hora salida</td>
-    <td>transcurrido</td>
-    <td>valor cobro</td>
-    <td>cliente</td>
+<table class="center" border="1" cellpadding="1" cellspacing="1">
+ <tr>
+    <td><strong>ID</strong></td>
+    <td><strong>PLACA&nbsp;&nbsp;</strong></td>
+    <td><strong>TIPO</strong></td>
+    <td><strong>FECHA LLEGADA</strong></td>
+    <td><strong>HORA LLEGADA</strong></td>
+    <td><strong>FECHA SALIDA</strong></td>
+    <td><strong>HORA SALIDA</strong></td>
+    <td><strong>TRANSCURRIDO</strong></td>
+    <td><strong>VALOR cobro</strong></td>
+    <td><strong>CLIENTE</strong></td>
   </tr>
   <?php do { ?>
     <tr>
@@ -210,8 +218,9 @@ sumatoriasem = <?php echo $row_sumatoriasem['suma']?>
     </tr>
     <?php } while ($row_mensual = mysql_fetch_assoc($mensual)); ?>
 </table>
-
-sumatoriasem = <?php echo $row_sumatoriames['suma']?>
+<section class="row">
+  <strong>Total Mes:</strong> <?php echo "<strong>".$row_sumatoriames['suma']."</strong>";?>
+</section>
 
                     
 				</div>
