@@ -1,13 +1,14 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-	<title>Inicio</title>
+	<title>ControlParking</title>
 	<meta charset="utf-8" />
 	<meta name = "viewport" content = "width=device-width, maximum-scale = 1, minimum-scale=1" />
 	<link rel="stylesheet" type="text/css" href="css/default.css" media="all" />
 	<link rel="stylesheet" href="css/flexslider.css" type="text/css" />
 	<link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css' />
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>-->
+	<script src="jquery.min.js"></script>
 	<script src="js/jquery.flexslider.js"></script>
 	<script src="js/default.js"></script>
 	<!--[if lt IE 9]>
@@ -25,8 +26,9 @@ require_once('pagewidth.php');
 
 			<section id="contactUs" class="row grey">
 				<div class="center">
-					<h1>Ingresar al sistema</h1>
-					<strong class="subHeading">Suministre su nombre de usuario y contrase&ntildea </strong>
+					<h2>ControlParking</h2>
+					<h2>Sistema Administrador de Parqueaderos</h2>
+					<h2>Ingresar al sistema</h2>
 					<div class="columns">
 						<div class="half">
                         
