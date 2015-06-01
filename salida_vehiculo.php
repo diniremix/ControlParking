@@ -81,7 +81,7 @@ require_once('pagewidth.php');
 
 <section id="twoColumnLayout" class="row grey">
 				<div class="center">
-					 <h1>Salida veh&iacute;culo</h1>
+					 <h1>Salida de veh&iacute;culos</h1>
 				<div class="columns">
 						<div class="half">
 							
@@ -94,8 +94,8 @@ require_once('pagewidth.php');
 		  <button class="btnSmall btn submit right" value="enviar" type="submit" id="enviar" name="enviar">
 		  <span>Buscar</span>
 		  </button>
-		   
-		  <button class="btnSmall btn submit right" value="enviar" type="submit" id="enviar" name="enviar">
+		   &nbsp;&nbsp;
+		  <button class="btnSmall btn submit left" value="enviar" type="submit" id="enviar" name="enviar">
 		  <span>Listar Todos</span>
 		  </button>
 		</div>	
@@ -116,7 +116,7 @@ else {
 <table border="0" cellpadding="5" cellspacing="5">
   <tr bgcolor="#FFFFFF">
     
-    <td width="20%"><font color="#000000"><b>Placa</font></b></td>
+    <td width="20%"><font color="#000000"><b>Placa No.</font></b></td>
     <td width="20%"><font color="#000000"><b>Tipo de vehiculo</b></font></td>
     <td width="35%"><font color="#000000"><b>fecha llegada</b></font></td>
     <td width="25%"><font color="#000000"><b>hora llegada</b></font></td>
@@ -272,7 +272,7 @@ $horafin = $hora_salida;
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="form2" id="form2">
   <table align="center">
     <tr>
-      <td nowrap="nowrap" align="right">Placa: </td>
+      <td nowrap="nowrap" align="right">Placa No.: </td>
       <td><input name="placa" type="text" disabled="disabled" value="<?php echo $placabuscada?>" size="6" maxlength="6" /></td>
     </tr>
     <tr>
@@ -284,7 +284,7 @@ $horafin = $hora_salida;
       <td><input name="hora_salida" type="text" disabled="disabled" value="<?php echo $hora_salida?>" size="32" /></td>
     </tr>
     <tr>
-      <td nowrap="nowrap" align="right">Usuario salida:</td>
+      <td nowrap="nowrap" align="right">Usuario Actual:</td>
       <td><input name="usuario_salida" type="text" disabled="disabled" value="<?php echo $_SESSION['login']?>" size="32" /></td>
     </tr>
     <tr>
