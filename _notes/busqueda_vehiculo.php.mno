@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_vehiculos" value="name:id;datatype:int,name:placa;datatype:string,name:tipo_vehiculo;datatype:int,name:fecha_llegada;datatype:date,name:hora_llegada;datatype:time,name:usuario_llegada;datatype:string,name:fecha_salida;datatype:date,name:hora_salida;datatype:time,name:usuario_salida;datatype:int,name:transcurrido;datatype:time,name:valor_cobro;datatype:int,name:tipo_cobro;datatype:string" />
+</info>

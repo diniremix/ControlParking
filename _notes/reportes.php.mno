@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_Recordset1" value="name:id;datatype:int,name:placa;datatype:string,name:tipo;datatype:string,name:fecha_llegada;datatype:date,name:hora_llegada;datatype:time,name:usuario_llegada;datatype:string,name:fecha_salida;datatype:date,name:hora_salida;datatype:time,name:usuario_salida;datatype:string,name:transcurrido;datatype:time,name:valor_cobro;datatype:int,name:tipo_cobro;datatype:string,name:cliente;datatype:int,name:e_s;datatype:int" />
+	<infoitem key="UD_Recordset2" value="name:id;datatype:int,name:placa;datatype:string,name:tipo;datatype:string,name:fecha_llegada;datatype:date,name:hora_llegada;datatype:time,name:usuario_llegada;datatype:string,name:fecha_salida;datatype:date,name:hora_salida;datatype:time,name:usuario_salida;datatype:string,name:transcurrido;datatype:time,name:valor_cobro;datatype:int,name:tipo_cobro;datatype:string,name:cliente;datatype:int,name:e_s;datatype:int" />
+	<infoitem key="UD_sumatoria" value="name:suma;datatype:real" />
+</info>
