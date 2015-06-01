@@ -1,0 +1,16 @@
+.idea
+*.DS_Store
+*.sublime-workspace
+test/*
+# Windows image file caches
+[Tt]humbs.db
+# Folder config file
+[Dd]esktop.ini
+*.db
+# another files
+*.doc
+*.docx
+*.zip
+*.rar
+*.tar
+*.tar.gz
