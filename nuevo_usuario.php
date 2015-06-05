@@ -62,20 +62,20 @@ if ($_SESSION['tipo'] === '1') {
 
 <section class="row">
 				<div class="center">
-					<strong class="subHeading">Registro de nuevo usuario</strong>
+					<strong class="subHeading">Registro de nuevos usuarios</strong>
 					
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="form1" id="form1">
   <table align="center" cellspacing="5" cellpadding="5">
     <tr>
-      <td align="right">Login:</td>
+      <td align="right">Usuario:</td>
       <td><input name="login" type="text" value="" size="35" maxlength="35" /></td>
     </tr>
     <tr>
-      <td nowrap="nowrap" align="right">Password:</td>
+      <td nowrap="nowrap" align="right">Contrase&ntilde;a:</td>
       <td><input type="text" name="password" value="" size="35" maxlength="35"/></td>
     </tr>
     <tr>
-      <td nowrap="nowrap" align="center">Repite tu password:</td>
+      <td nowrap="nowrap" align="center">Repite la Contrase&ntilde;a:</td>
       <td><input type="text" name="password" value="" size="35"maxlength="35" /></td>
     </tr>
     <tr>
@@ -83,14 +83,14 @@ if ($_SESSION['tipo'] === '1') {
       <td><input type="text" name="nombres" value="" size="40" maxlength="40"/></td>
     </tr>
     <tr>
-      <td align="right">Tipo: </td>
+      <td align="right"><strong>Tipo:</strong> </td>
       <td align="center">Administrador:   <input type="radio" name="tipo" value="1" size="2" /></td>
 	  <td align="center">Usuario:			<input type="radio" name="tipo" value="2" size="2" /></td>
     </tr>
     <tr>
       <td nowrap="nowrap" align="right">&nbsp;</td>
       <td><button class="btnSmall btn submit right">
-											<span>Enviar</span>
+											<span>Registrar</span>
 										</button>
   <input type="hidden" name="MM_insert" value="form1" />
 </form></td>
