@@ -15,8 +15,8 @@ if ($_SESSION['tipo'] === '1') {
 					<ul>
 						<li class="active">
                         <li><a href="index.php"><span>Inicio</span></a></li>
-						<!-- <li><a href="nuevo_usuario.php"><span>Nuevo usuario</span></a></li>
-						<li><a href="reportes_clientes.php"><span>Reportes clientes</span></a></li> -->
+						<li><a href="nuevo_usuario.php"><span>Nuevo usuario</span></a></li>
+						<!-- <li><a href="reportes_clientes.php"><span>Reportes clientes</span></a></li> -->
 						<li><a href="reportes_usuariosa.php"><span>Reportes por usuarios</span></a></li>
 						<li><a href="reportes_ingresos.php"><span>Reportes de ingresos por fecha</span></a></li>
 						<li><a href="logoff.php"><span>Salir</span></a></li>
