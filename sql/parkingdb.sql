@@ -87,6 +87,13 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- La exportación de datos fue deseleccionada.
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `login`, `password`, `nombres`, `tipo`) VALUES
+(1, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'Administrador', '1'),
+(2, 'demo', '89e495e7941cf9e40e6980d14a16bf023ccd4c91', 'Usuario Regular', '2');
 
 
 -- Volcando estructura para tabla parkingdb.vehiculos
