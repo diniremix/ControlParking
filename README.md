@@ -17,7 +17,8 @@ Clonar este repositorio y alojarlo en la carpeta de su servidor web con el nombr
 * Crear un Base de Datos en su sevidor **Mysql** de nombre **parkingdb** y collation **latin_spanish_ci**
 * Importar el archivo **/sql/parkingdb.sql** a la nueva base de datos.
 * Ejecutar el servidor web y dirigirse a **http://localhost/controlparking**
-* El usuario y la contraseña por defecto es: **demo**
+* El usuario y la contraseña para el Administrador es: **admin**
+* El usuario y la contraseña para el Usuario Regular es: **demo**
 * Editor recomendado [SublimeText 2](http://www.sublimetext.com/2)
 
 
